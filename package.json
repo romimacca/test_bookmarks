@@ -1,0 +1,10 @@
+{
+  "name": "bookmarks_app",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "highcharts": "^8.2.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}

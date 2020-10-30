@@ -1,0 +1,37 @@
+<%= form_with(model: @bookmark, remote: true, class: "form-group mb-4" , data: {confirm: "Are you sure?"}) do |form| %>
+  <% if bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+      <% bookmark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_id %>
+    <%= form.select :tag_id, Tag.all.collect {|t| [t.name, t.id]}.unshift(["-- Optional --",nil]), {id: :bookmark_tag_id}, class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+     <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}.unshift(["-- Optional --",nil]), {id: :bookmark_category_id}, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Guardar Marcador', :class => 'btn btn-primary my-3' %>
+  </div>
+<% end %>

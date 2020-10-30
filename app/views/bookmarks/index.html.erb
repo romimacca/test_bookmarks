@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bookmarks</h1>
+
+<%= render 'form', bookmark: @bookmark %>
+
+<table id="table_bookmarks" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Tag</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render 'bookmarks' %>
+  </tbody>
+</table>
